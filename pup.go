@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 	"os/exec"
+	"os/user"
 	"strconv"
 	"strings"
 	"syscall"
@@ -44,10 +45,17 @@ func writePid(app App, pid int) {
 }
 
 func config() Config {
-	file, _ := os.Open("/Users/pablo/pup.json")
+	usr, err := user.Current()
+	if err != nil {
+		panic(err)
+	}
+	file, err := os.Open(usr.HomeDir + "/pup.json")
+	if err != nil {
+		panic("~/pup.json not found")
+	}
 	decoder := json.NewDecoder(file)
 	config := Config{}
-	err := decoder.Decode(&config)
+	err = decoder.Decode(&config)
 	if err != nil {
 		panic(err)
 	}
