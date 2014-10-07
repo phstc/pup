@@ -102,7 +102,7 @@ func pid(app App) int {
 }
 
 func printUsage() {
-	fmt.Println("usage: pup (start|stop|restart|status) app_name")
+	fmt.Println("Usage:\n\tpup (start|stop|restart|status) [<app-name>]")
 }
 
 func main() {
@@ -130,6 +130,9 @@ Parser:
 		count++
 
 		switch cmd {
+		case "help":
+			printUsage()
+			break Parser
 		case "start":
 			start(app)
 		case "stop":
@@ -145,7 +148,7 @@ Parser:
 		}
 	}
 
-	if appName != "" && count == 0 {
+	if count == 0 {
 		fmt.Printf("%s not found\n", appName)
 	}
 }
