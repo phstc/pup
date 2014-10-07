@@ -43,15 +43,6 @@ func writePid(app App, pid int) {
 	w.Sync()
 }
 
-func setOutErr(app App, cmd *exec.Cmd) {
-	out, _ := os.Create(app.Out)
-	defer out.Close()
-	err, _ := os.Create(app.Err)
-	defer err.Close()
-	cmd.Stdout = out
-	cmd.Stderr = err
-}
-
 func config() Config {
 	file, _ := os.Open("/Users/pablo/pup.json")
 	decoder := json.NewDecoder(file)
@@ -70,9 +61,6 @@ func start(app App) {
 
 	// detach the process
 	cmd.SysProcAttr = &syscall.SysProcAttr{Setpgid: true}
-
-	// TODO not working
-	// setOutErr(app, cmd)
 
 	cmd.Start()
 

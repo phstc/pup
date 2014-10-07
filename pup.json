@@ -4,25 +4,19 @@
     "name": "smaug",
     "cmd": "bundle exec rails s -p4000",
     "chdir": "/Users/pablo/spree/smaug",
-    "pidfile": "/Users/pablo/smaug.pid",
-    "out": "/dev/null",
-    "err": "/dev/null"
+    "pidfile": "/Users/pablo/smaug.pid"
   },
   {
     "name": "falkor",
     "cmd": "bin/start",
     "chdir": "/Users/pablo/spree/falkor",
-    "pidfile": "/Users/pablo/falkor.pid",
-    "out": "/dev/null",
-    "err": "/dev/null"
+    "pidfile": "/Users/pablo/falkor.pid"
   },
   {
     "name": "hydra",
     "cmd": "rackup",
     "chdir": "/Users/pablo/spree/hydra",
-    "pidfile": "/Users/pablo/hydra.pid",
-    "out": "/dev/null",
-    "err": "/dev/null"
+    "pidfile": "/Users/pablo/hydra.pid"
   }
   ]
 }
