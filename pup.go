@@ -74,8 +74,7 @@ func stop(app App) {
 	pid := pid(app)
 	pgid, err := syscall.Getpgid(pid)
 	if err == nil {
-		// err := syscall.Kill(-pgid, syscall.SIGTERM)
-		err := syscall.Kill(-pgid, syscall.SIGINT)
+		err := syscall.Kill(-pgid, syscall.SIGTERM)
 		if err == nil {
 			fmt.Printf("stopping %s with pid %d\n", app.Name, pid)
 		} else {
