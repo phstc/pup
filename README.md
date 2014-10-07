@@ -1,6 +1,6 @@
 # pup
 
-Start, stop and do not monitor processes in development.
+Start, stop and do not monitor processes.
 
 ## Usage
 
