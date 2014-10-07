@@ -38,4 +38,24 @@ Create the `pup.json` configuration file in your home directory: `~/pup.json`.
 ```bash
 Usage:
         pup (start|stop|restart|status) [<app-name>]
+
+```
+
+```bash
+$ pup status
+railsapp no such process
+standaloneapp no such process
+sinatraapp no such process
+
+$ pup start railsapp
+starting railsapp with pid 10268
+
+$ pup status railsapp
+railsapp is running with pid 10268
+
+$ pup stop railsapp
+stopping railsapp with pid 10268
+
+$ pup status railsapp
+railsapp no such process
 ```
